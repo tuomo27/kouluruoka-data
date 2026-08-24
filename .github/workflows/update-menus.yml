@@ -1,0 +1,77 @@
+name: Update anonymous school menu snapshot
+
+on:
+  schedule:
+    - cron: "17 4,14 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-menus.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch anonymized menu data
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            --retry 4 --retry-delay 10 --retry-all-errors \
+            --connect-timeout 30 --max-time 120 \
+            "https://kouluruoka-agent.onrender.com/menus" \
+            -o menus.new.json
+
+      - name: Validate snapshot
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("menus.new.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+
+          required = {"generated_at", "child_1", "child_2", "warnings", "errors"}
+          missing = required - data.keys()
+          if missing:
+              raise SystemExit(f"Missing required keys: {sorted(missing)}")
+          if data["errors"]:
+              raise SystemExit(f"Upstream errors: {data['errors']}")
+          if not data["child_1"].get("this_week"):
+              raise SystemExit("child_1 current week missing")
+          if not data["child_2"].get("this_week"):
+              raise SystemExit("child_2 current week missing")
+
+          path.write_text(
+              json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit only a valid changed snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          mv menus.new.json menus.json
+          git add menus.json
+
+          if git diff --cached --quiet; then
+            echo "menus.json is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update anonymous school menu snapshot"
+          git push
