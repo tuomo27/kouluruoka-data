@@ -109,33 +109,101 @@
     "next_week": [
       {
         "date": "2026-08-31",
-        "lunch": [],
+        "lunch": [
+          "Suomalaisen ruoan viikko",
+          "Lihapyörykät",
+          "Kaalikääryleet",
+          "Ruskeakastike",
+          "Perunat",
+          "Kiinankaali-maissi-parikasalaatti",
+          "Jäävuorisalaatti",
+          "Porkkanaraaste",
+          "Puolukkahillo"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Kasvispyörykät",
+          "Metsäsienikääryleet",
+          "Ruskeakastike",
+          "Perunat",
+          "Salaatti, kiinankaali-maissi-paprika",
+          "Jäävuorisalaatti",
+          "Porkkanaraaste",
+          "Puolukkahillo"
+        ]
       },
       {
         "date": "2026-09-01",
-        "lunch": [],
+        "lunch": [
+          "Kalakeitto",
+          "Saaristolaisleipä",
+          "Vatkattu mustikka-mustaherukkapuuro"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Juustoinen kesäkeitto",
+          "Saaristolaisleipä",
+          "Vatkattu mustikka-mustaherukkapuuro"
+        ]
       },
       {
         "date": "2026-09-02",
-        "lunch": [],
+        "lunch": [
+          "Jauhelihamakaronilaatikko",
+          "Hölskykurkut",
+          "Punakaali-ananassalaatti",
+          "Salaattisekoitus",
+          "Porkkanapölkky",
+          "Ketsuppi",
+          "Klementiini"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Kasvis-makaronilaatikko",
+          "Hölskykurkut",
+          "Salaattisekoitus",
+          "Punakaali-ananassalaatti",
+          "Porkkanapölkky",
+          "Ketsuppi",
+          "Klementiini"
+        ]
       },
       {
         "date": "2026-09-03",
-        "lunch": [],
+        "lunch": [
+          "Kasvis-hernekeitto",
+          "Ruisleipä, pala",
+          "Ohukaiset",
+          "Mansikkahillo"
+        ],
         "ok": true,
         "vegetarian_lunch": []
       },
       {
         "date": "2026-09-04",
-        "lunch": [],
+        "lunch": [
+          "Uunimakkara",
+          "Perunasose",
+          "Porkkanaraaste",
+          "Jäävuorisalaatti",
+          "Kurkkukuutio",
+          "Tomaattilohko",
+          "Sinappikurkkusalaatti",
+          "Sinappi",
+          "Ketsuppi"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Porkkana-kikhernepihvi",
+          "Perunasose",
+          "Porkkanaraaste",
+          "Jäävuorisalaatti",
+          "Tomaattilohko",
+          "Kurkkukuutio",
+          "Sinappikurkkusalaatti",
+          "Ketsuppi",
+          "Sinappi"
+        ]
       }
     ],
     "this_week": [
@@ -233,8 +301,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-08-26T05:59:54.799567+00:00",
-  "warnings": {
-    "child_2_next_week": "The source responded successfully, but next week's lunch items have not been published yet."
-  }
+  "generated_at": "2026-08-26T16:59:25.932368+00:00",
+  "warnings": {}
 }
