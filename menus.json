@@ -108,6 +108,38 @@
   "child_2": {
     "next_week": [
       {
+        "date": "2026-09-07",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-09-08",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-09-09",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-09-10",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-09-11",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      }
+    ],
+    "this_week": [
+      {
         "date": "2026-08-31",
         "lunch": [
           "Suomalaisen ruoan viikko",
@@ -205,102 +237,11 @@
           "Sinappi"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-08-24",
-        "lunch": [
-          "Naudanliha-pippurikastike",
-          "Perunat",
-          "Salaattisekoitus",
-          "Paprikasuikaleet",
-          "Kesäkurpitsasuikaleet"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Papu-paprikakastike",
-          "Perunat",
-          "Salaattisekoitus",
-          "Paprikasuikale",
-          "Kesäkurpitsasuikaleet"
-        ]
-      },
-      {
-        "date": "2026-08-25",
-        "lunch": [
-          "Porkkana-kvinoapyörykkä",
-          "Valkosipuliperunat",
-          "Välimeren salaatti",
-          "Porkkanaraaste",
-          "Kurkkusuikaleet"
-        ],
-        "ok": true,
-        "vegetarian_lunch": []
-      },
-      {
-        "date": "2026-08-26",
-        "lunch": [
-          "Broiler-nuudelivuoka",
-          "Mustaherukkahillo",
-          "Jäävuorisalaatti",
-          "Appelsiini-punasipulisalaatti",
-          "Tomaattilohkot",
-          "Kurkkukuutiot",
-          "Hedelmä"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Kasvis-nuudelivuoka",
-          "Mustaherukkahillo",
-          "Jäävuorisalaatti",
-          "Appelsiini-punasipulisalaatti",
-          "Tomaattilohkot",
-          "Kurkkukuutiot",
-          "Hedelmä"
-        ]
-      },
-      {
-        "date": "2026-08-27",
-        "lunch": [
-          "Itämeripäivä",
-          "Kalapuikot",
-          "Perunat",
-          "Kermaviili-kurkkukastike",
-          "Marinoitu paprika-kaalisalaatti",
-          "Suikalepunajuuria",
-          "Kurkkusuikaleet",
-          "Jäävuorisalaatti"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Kasviskepukat",
-          "Perunat",
-          "Kermaviili-kurkkukastike",
-          "Marinoitu paprika-kaalisalaatti",
-          "Suikalepunajuuria",
-          "Kurkkusuikaleet",
-          "Jäävuorisalaatti"
-        ]
-      },
-      {
-        "date": "2026-08-28",
-        "lunch": [
-          "Punainen broilerkeitto",
-          "Ruispala",
-          "Edamjuusto",
-          "Marjakiisseli"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Linssi-tomaattikeitto",
-          "Ruispala",
-          "Edamjuusto",
-          "Marjakiisseli"
-        ]
-      }
     ]
   },
   "errors": {},
-  "generated_at": "2026-08-30T14:24:05.005972+00:00",
-  "warnings": {}
+  "generated_at": "2026-08-31T04:24:29.173967+00:00",
+  "warnings": {
+    "child_2_next_week": "The source responded successfully, but next week's lunch items have not been published yet."
+  }
 }
