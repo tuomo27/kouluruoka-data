@@ -2,58 +2,6 @@
   "child_1": {
     "next_week": [
       {
-        "date": "2026-09-07",
-        "day": "maanantai",
-        "lunch": [
-          "Butter chicken",
-          "Täysjyväriisi",
-          "Salaattia"
-        ]
-      },
-      {
-        "date": "2026-09-08",
-        "day": "tiistai",
-        "lunch": [
-          "Lihaperunasoselaatikkoa",
-          "Pehmeä leipä",
-          "Salaattia"
-        ]
-      },
-      {
-        "date": "2026-09-09",
-        "day": "keskiviikko",
-        "lunch": [
-          "Kalapyöryköitä",
-          "Tillikastiketta",
-          "Keitettyjä perunoita",
-          "Salaattia",
-          "Hedelmää"
-        ]
-      },
-      {
-        "date": "2026-09-10",
-        "day": "torstai",
-        "lunch": [
-          "Makkarakeittoa",
-          "Hedelmää",
-          "Pehmeä leipä",
-          "Tuorepalaa"
-        ]
-      },
-      {
-        "date": "2026-09-11",
-        "day": "perjantai",
-        "lunch": [
-          "Bataatti-juurespihvi",
-          "Kermaviili-persikkakastike",
-          "Keitettyjä perunoita",
-          "Salaattia",
-          "Lämmin kasvis"
-        ]
-      }
-    ],
-    "this_week": [
-      {
         "date": "2026-08-31",
         "day": "maanantai",
         "lunch": [
@@ -100,6 +48,57 @@
         "day": "perjantai",
         "lunch": [
           "Chili con carnea",
+          "Keitettyjä perunoita",
+          "Salaattia"
+        ]
+      }
+    ],
+    "this_week": [
+      {
+        "date": "2026-08-24",
+        "day": "maanantai",
+        "lunch": [
+          "Broileria omenakastikkeessa",
+          "Täysjyväriisiä",
+          "Keitettyjä perunoita",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-08-25",
+        "day": "tiistai",
+        "lunch": [
+          "Kalakeitto",
+          "Hedelmää",
+          "Pehmeä leipä",
+          "Tuorepalaa"
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "day": "keskiviikko",
+        "lunch": [
+          "Kasvismoussaka",
+          "Lämmin kasvis",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-08-27",
+        "day": "torstai",
+        "lunch": [
+          "Silakkamurekepihvejä",
+          "Kurkkumajoneesia",
+          "Keitettyjä perunoita",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-08-28",
+        "day": "perjantai",
+        "lunch": [
+          "Lihapyörykät",
+          "Ruskeaa kastiketta",
           "Keitettyjä perunoita",
           "Salaattia"
         ]
@@ -241,7 +240,7 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-09-01T04:29:11.942208+00:00",
+  "generated_at": "2026-09-01T14:30:19.329263+00:00",
   "warnings": {
     "child_2_next_week": "The source responded successfully, but next week's lunch items have not been published yet."
   }
