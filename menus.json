@@ -110,33 +110,103 @@
     "next_week": [
       {
         "date": "2026-09-07",
-        "lunch": [],
+        "lunch": [
+          "Butter Chicken",
+          "Kaurajyvät",
+          "Salaattisekoitus",
+          "Tomaattikuutioita",
+          "Kurkkusuikaleet",
+          "Paprikasuikaleet",
+          "Ananaspalat"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Quornia Intialaisittain ",
+          "Kaurajyvät",
+          "Salaattisekoitus",
+          "Tomaattikuutioita",
+          "Kurkkusuikaleet",
+          "Paprikasuikaleet",
+          "Ananaspalat"
+        ]
       },
       {
         "date": "2026-09-08",
-        "lunch": [],
+        "lunch": [
+          "Jauhelihakeitto",
+          "Ruispala",
+          "Krutonki",
+          "Mehukiisseli"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Bataatti-porkkana-perunasosekeitto",
+          "Ruispala",
+          "Krutonki",
+          "Mehukiisseli"
+        ]
       },
       {
         "date": "2026-09-09",
-        "lunch": [],
+        "lunch": [
+          "Kirjolohikiusaus",
+          "Punajuuri-omena-purjosalaatti",
+          "Porkkanaraaste",
+          "Jäävuorisalaatti",
+          "Herne",
+          "Hedelmä"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Yrtti-juustokiusaus",
+          "Punajuuri-omena-purjosalaatti",
+          "Porkkanaraaste",
+          "Jäävuorisalaatti",
+          "Herne",
+          "Hedelmä"
+        ]
       },
       {
         "date": "2026-09-10",
-        "lunch": [],
+        "lunch": [
+          "Paneroitu kalkkunaleike",
+          "Cheddarkastike",
+          "Perunat",
+          "Kiinankaali-paprika- persikkasalaatti",
+          "Marinoitu punasipuli",
+          "Salaattisekoitus",
+          "Tomaattilohkot"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Porkkanapihvi",
+          "Cheddarkastike",
+          "Perunat",
+          "Kiinankaali-paprika- persikkasalaatti",
+          "Marinoitu punasipuli",
+          "Salaattisekoitus",
+          "Tomaattilohkot"
+        ]
       },
       {
         "date": "2026-09-11",
-        "lunch": [],
+        "lunch": [
+          "Broilertäyte",
+          "Vehnätortilla",
+          "Jäävuorisalaatti",
+          "Kurkkusuikaleet",
+          "Tomaattisalsa",
+          "Raejuusto"
+        ],
         "ok": true,
-        "vegetarian_lunch": []
+        "vegetarian_lunch": [
+          "Mifutäyte",
+          "Vehnätortilla",
+          "Jäävuorisalaatti",
+          "Kurkkusuikaleet",
+          "Tomaattisalsa",
+          "Raejuusto"
+        ]
       }
     ],
     "this_week": [
@@ -240,8 +310,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-09-03T05:36:40.145821+00:00",
-  "warnings": {
-    "child_2_next_week": "The source responded successfully, but next week's lunch items have not been published yet."
-  }
+  "generated_at": "2026-09-03T14:30:56.634706+00:00",
+  "warnings": {}
 }
