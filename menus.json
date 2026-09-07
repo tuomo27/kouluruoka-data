@@ -214,7 +214,7 @@
         "date": "2026-09-07",
         "lunch": [
           "Butter Chicken",
-          "Kaurajyvät",
+          "Kaurajyvä",
           "Salaattisekoitus",
           "Tomaattikuutioita",
           "Kurkkusuikaleet",
@@ -313,6 +313,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-09-07T04:30:56.113648+00:00",
+  "generated_at": "2026-09-07T14:30:46.661948+00:00",
   "warnings": {}
 }
