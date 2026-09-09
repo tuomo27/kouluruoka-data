@@ -1,0 +1,398 @@
+const LOC = { lat: 60.99596, lon: 24.46434, tz: 'Europe/Helsinki' };
+const CFG = {
+  margin: 0.49,
+  dayTransfer: 7.45,
+  nightTransfer: 5.68,
+  carKwh: 13.2,
+  chargeKw: 3.68,
+  eff: 0.90,
+  deadlineHour: 8
+};
+
+let state = { prices: [], vatkain: [], weather: null };
+const $ = (id) => document.getElementById(id);
+const fmt1 = (v) => Number.isFinite(v) ? v.toFixed(1).replace('.', ',') : '–';
+const fmt2 = (v) => Number.isFinite(v) ? v.toFixed(2).replace('.', ',') : '–';
+
+function lp(d) {
+  const a = new Intl.DateTimeFormat('fi-FI', {
+    timeZone: LOC.tz, year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', hour12: false
+  }).formatToParts(d);
+  const g = (t) => a.find((x) => x.type === t)?.value;
+  return { y: +g('year'), m: +g('month'), d: +g('day'), h: (+g('hour')) % 24, min: +g('minute') };
+}
+
+const hourKey = (d) => { const p = lp(d); return `${p.y}-${p.m}-${p.d}-${p.h}`; };
+const quarterKey = (d) => { const p = lp(d); return `${p.y}-${p.m}-${p.d}-${p.h}-${Math.floor(p.min / 15) * 15}`; };
+const dayKey = (d) => { const p = lp(d); return `${p.y}-${String(p.m).padStart(2, '0')}-${String(p.d).padStart(2, '0')}`; };
+const tlabel = (d) => new Intl.DateTimeFormat('fi-FI', { timeZone: LOC.tz, hour: '2-digit', minute: '2-digit' }).format(d);
+const dlabel = (d) => new Intl.DateTimeFormat('fi-FI', { timeZone: LOC.tz, weekday: 'short', day: 'numeric', month: 'numeric' }).format(d);
+
+function total(spot, d) {
+  const h = lp(d).h;
+  const transfer = (h >= 22 || h < 7) ? CFG.nightTransfer : CFG.dayTransfer;
+  return spot + transfer + CFG.margin;
+}
+
+function wtext(c) {
+  if (c === 0) return 'Selkeää';
+  if ([1, 2].includes(c)) return 'Puolipilvistä';
+  if (c === 3) return 'Pilvistä';
+  if (c >= 51 && c <= 67) return 'Sadetta';
+  if (c >= 80 && c <= 82) return 'Kuuroja';
+  if (c >= 95) return 'Ukkosta';
+  return 'Vaihtelevaa';
+}
+
+function band(v) {
+  if (v < 8) return ['halpa', 'good'];
+  if (v < 18) return ['normaali', ''];
+  if (v < 35) return ['kallis', 'warn'];
+  return ['erittäin kallis', 'bad'];
+}
+
+async function fetchPrices() {
+  const now = new Date();
+  const start = new Date(now.getTime() - 2 * 864e5);
+  const end = new Date(now.getTime() + 8 * 864e5);
+  const u = `https://sahkotin.fi/prices?quarter&fix&vat&start=${encodeURIComponent(start.toISOString())}&end=${encodeURIComponent(end.toISOString())}`;
+  const r = await fetch(u, { cache: 'no-store' });
+  if (!r.ok) throw new Error('Spot-hintojen haku epäonnistui');
+  const j = await r.json();
+  return (j.prices || []).map((x) => ({ date: new Date(x.date), spot: +x.value })).sort((a, b) => a.date - b.date);
+}
+
+async function fetchVatkain() {
+  const urls = [
+    'https://sahkovatkain.web.app/prediction.json',
+    'https://raw.githubusercontent.com/vividfog/nordpool-predict-fi/main/deploy/prediction.json'
+  ];
+  for (const u of urls) {
+    try {
+      const r = await fetch(u, { cache: 'no-store' });
+      if (!r.ok) continue;
+      const j = await r.json();
+      const a = j.map((x) => ({ date: new Date(Number(x[0])), price: +x[1] })).filter((x) => Number.isFinite(x.price));
+      if (a.length > 12) return a;
+    } catch (_) {}
+  }
+  throw new Error('Sähkövatkaimen haku epäonnistui');
+}
+
+async function fetchWeather() {
+  const u = `https://api.open-meteo.com/v1/forecast?latitude=${LOC.lat}&longitude=${LOC.lon}&timezone=${encodeURIComponent(LOC.tz)}&current=temperature_2m,weather_code,wind_speed_10m&forecast_days=7`;
+  const r = await fetch(u, { cache: 'no-store' });
+  if (!r.ok) throw new Error('Sään haku epäonnistui');
+  return r.json();
+}
+
+function nextLocalDayKey(now) {
+  const p = lp(now);
+  const probe = new Date(Date.UTC(p.y, p.m - 1, p.d + 1, 12, 0, 0));
+  return dayKey(probe);
+}
+
+function publishedDayKeys() {
+  const now = new Date();
+  const p = lp(now);
+  const keys = new Set([dayKey(now)]);
+  if (p.h >= 14) keys.add(nextLocalDayKey(now));
+  return keys;
+}
+
+function officialPrices() {
+  const keys = publishedDayKeys();
+  return state.prices.filter((p) => keys.has(dayKey(p.date)));
+}
+
+function currentPrice() {
+  const now = Date.now();
+  return officialPrices().filter((p) => p.date.getTime() <= now).toSorted((a, b) => b.date - a.date)[0] || null;
+}
+
+function renderHero() {
+  const p = currentPrice();
+  if (p) {
+    $('spotNow').textContent = fmt2(p.spot);
+    const v = total(p.spot, p.date);
+    $('totalNow').textContent = `Kokonaismuuttuva ${fmt2(v)} snt/kWh`;
+    const [txt, cl] = band(v);
+    $('priceBand').textContent = txt;
+    $('priceBand').className = `badge ${cl}`;
+  }
+  const c = state.weather?.current;
+  if (c) {
+    $('tempNow').textContent = fmt1(c.temperature_2m);
+    $('weatherNow').textContent = wtext(c.weather_code);
+    $('windNow').textContent = `tuuli ${fmt1(c.wind_speed_10m)} km/h`;
+  }
+}
+
+function hourlySpot() {
+  const m = new Map();
+  for (const p of officialPrices()) {
+    const k = hourKey(p.date);
+    const a = m.get(k) || [];
+    a.push(p.spot);
+    m.set(k, a);
+  }
+  return new Map([...m].map(([k, a]) => [k, a.reduce((s, x) => s + x, 0) / a.length]));
+}
+
+function series() {
+  const hs = hourlySpot();
+  const fv = new Map(state.vatkain.map((v) => [hourKey(v.date), v.price]));
+  const now = new Date();
+  const today = dayKey(now);
+  const todayOfficial = officialPrices().filter((p) => dayKey(p.date) === today);
+  const start = todayOfficial.length ? new Date(Math.min(...todayOfficial.map((p) => p.date.getTime()))) : new Date(now);
+  const end = new Date(start.getTime() + 7 * 864e5);
+  const out = [];
+  for (let t = new Date(start); t < end; t = new Date(t.getTime() + 3600e3)) {
+    const a = hs.get(hourKey(t));
+    const f = fv.get(hourKey(t));
+    out.push({
+      date: new Date(t),
+      actual: Number.isFinite(a) ? a : null,
+      forecast: Number.isFinite(a) ? null : (Number.isFinite(f) ? f : null)
+    });
+  }
+  return out;
+}
+
+function svgText(svg, x, y, text, anchor = 'middle', fill = '#8295aa', size = '10', weight = '400') {
+  const tx = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  tx.setAttribute('x', x); tx.setAttribute('y', y); tx.setAttribute('text-anchor', anchor);
+  tx.setAttribute('fill', fill); tx.setAttribute('font-size', size); tx.setAttribute('font-weight', weight);
+  tx.textContent = text; svg.appendChild(tx); return tx;
+}
+
+function marker(svg, x, T, H, B, label, color, opacity = .45) {
+  const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  l.setAttribute('x1', x); l.setAttribute('x2', x); l.setAttribute('y1', T); l.setAttribute('y2', H - B);
+  l.setAttribute('stroke', color); l.setAttribute('stroke-opacity', opacity); l.setAttribute('stroke-width', '1.5');
+  l.setAttribute('stroke-dasharray', '4 5'); svg.appendChild(l);
+  svgText(svg, Math.min(x + 4, 710), T + 12, label, 'start', color, '9', '700');
+}
+
+function renderChart() {
+  const data = series();
+  const svg = $('chart');
+  svg.innerHTML = '';
+  if (data.length < 2) return;
+  const W = 760, H = 330, L = 42, R = 12, T = 18, B = 36;
+  const vals = data.flatMap((x) => [x.actual, x.forecast]).filter(Number.isFinite);
+  if (!vals.length) return;
+  let min = Math.min(...vals), max = Math.max(...vals);
+  if (min === max) { min -= 1; max += 1; }
+  min = Math.min(0, min);
+  const x = (i) => L + i * (W - L - R) / (data.length - 1);
+  const y = (v) => T + (max - v) * (H - T - B) / (max - min);
+
+  for (let i = 0; i < 5; i++) {
+    const yy = T + i * (H - T - B) / 4;
+    const val = max - i * (max - min) / 4;
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', L); line.setAttribute('x2', W - R); line.setAttribute('y1', yy); line.setAttribute('y2', yy);
+    line.setAttribute('stroke', '#20334a'); svg.appendChild(line);
+    svgText(svg, L - 6, yy + 4, fmt1(val), 'end');
+  }
+
+  const mkPath = (key, color, dash) => {
+    let d = '', open = false;
+    data.forEach((r, i) => {
+      const v = r[key];
+      if (!Number.isFinite(v)) { open = false; return; }
+      d += (open ? ' L ' : 'M ') + x(i) + ' ' + y(v);
+      open = true;
+    });
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d); p.setAttribute('fill', 'none'); p.setAttribute('stroke', color); p.setAttribute('stroke-width', '2.5');
+    if (dash) p.setAttribute('stroke-dasharray', '8 6');
+    p.setAttribute('vector-effect', 'non-scaling-stroke'); svg.appendChild(p);
+  };
+  mkPath('forecast', '#ffd166', true);
+  mkPath('actual', '#47d6ff', false);
+
+  const now = Date.now();
+  let nowIdx = 0, best = Infinity;
+  data.forEach((r, i) => { const z = Math.abs(r.date.getTime() - now); if (z < best) { best = z; nowIdx = i; } });
+  marker(svg, x(nowIdx), T, H, B, 'NYT', '#f4f7fb', .28);
+
+  const actualIdx = data.map((r, i) => Number.isFinite(r.actual) ? i : -1).filter((i) => i >= 0);
+  if (actualIdx.length) marker(svg, x(actualIdx.at(-1)), T, H, B, 'SPOT PÄÄTTYY', '#47d6ff', .42);
+
+  const shown = new Set();
+  data.forEach((r, i) => {
+    const k = dayKey(r.date);
+    if (!shown.has(k) && lp(r.date).h === 0) { svgText(svg, x(i), H - 10, dlabel(r.date)); shown.add(k); }
+  });
+}
+
+function renderDays() {
+  const data = series(), by = new Map();
+  for (const r of data) { const k = dayKey(r.date), a = by.get(k) || []; a.push(r); by.set(k, a); }
+  $('dayCards').innerHTML = '';
+  for (const a of [...by.values()].slice(0, 7)) {
+    const known = a.map((x) => x.actual).filter(Number.isFinite);
+    const pred = a.map((x) => x.forecast).filter(Number.isFinite);
+    const use = known.length ? known : pred;
+    if (!use.length) continue;
+    const avg = use.reduce((s, x) => s + x, 0) / use.length;
+    const fullDaySpot = known.length >= 23;
+    const src = fullDaySpot ? 'SPOT' : known.length ? 'SPOT + ENNUSTE' : 'ENNUSTE';
+    const el = document.createElement('div');
+    el.className = 'daycard';
+    el.innerHTML = `<div class="d">${dlabel(a[0].date)}</div><div class="v">${fmt1(avg)} ¢</div><div class="src ${src === 'ENNUSTE' ? 'forecast' : ''}">${src}</div>`;
+    $('dayCards').appendChild(el);
+  }
+}
+
+function renderTable() {
+  const now = new Date();
+  const rows = officialPrices().filter((p) => p.date >= new Date(now.getTime() - 2 * 3600e3)).slice(0, 160);
+  $('spotRows').innerHTML = rows.map((p) => `<tr><td>${dlabel(p.date)} ${tlabel(p.date)}</td><td>${fmt2(p.spot)}</td><td>${fmt2(total(0, p.date))}</td><td>${fmt2(total(p.spot, p.date))}</td></tr>`).join('');
+  if (rows.length) $('spotMeta').textContent = `Näytetään vain virallisesti julkaistut vartit · viimeisin ${dlabel(rows.at(-1).date)} ${tlabel(rows.at(-1).date)}`;
+}
+
+function nextDeadline() {
+  const now = new Date();
+  const p = lp(now);
+  const targetDay = p.h >= CFG.deadlineHour ? 1 : 0;
+  const probe = new Date(Date.UTC(p.y, p.m - 1, p.d + targetDay, 12, 0, 0));
+  const q = lp(probe);
+  let out = new Date(Date.UTC(q.y, q.m - 1, q.d, CFG.deadlineHour - 3, 0, 0));
+  for (let i = 0; i < 4; i++) {
+    const z = lp(out);
+    const diff = (CFG.deadlineHour - z.h) * 3600e3 - z.min * 60000;
+    out = new Date(out.getTime() + diff);
+  }
+  return out;
+}
+
+function quarterSlots(deadline) {
+  const now = new Date();
+  const start = new Date(Math.ceil(now.getTime() / 900000) * 900000);
+  const official = new Map(officialPrices().map((p) => [quarterKey(p.date), p.spot]));
+  const forecast = new Map(state.vatkain.map((v) => [hourKey(v.date), v.price]));
+  const slots = [];
+  for (let t = start; t < deadline; t = new Date(t.getTime() + 900000)) {
+    let spot = official.get(quarterKey(t));
+    let src = 'SPOT';
+    if (!Number.isFinite(spot)) { spot = forecast.get(hourKey(t)); src = 'ENNUSTE'; }
+    if (Number.isFinite(spot)) slots.push({ date: new Date(t), spot, src, total: total(spot, t) });
+  }
+  return slots;
+}
+
+function optimizeCharge() {
+  const socEl = $('soc');
+  if (!socEl) return;
+  const soc = Math.max(0, Math.min(100, Number(socEl.value) || 0));
+  localStorage.setItem('sahkovahti_soc', String(soc));
+
+  const deadline = nextDeadline();
+  const needBattery = CFG.carKwh * (100 - soc) / 100;
+  const gridKwh = needBattery / CFG.eff;
+  const hours = gridKwh / CFG.chargeKw;
+  const n = Math.ceil(hours / .25);
+  $('chargeDuration').textContent = soc >= 100 ? '0 h' : `${Math.floor(hours)} h ${Math.round((hours % 1) * 60)} min`;
+
+  if (soc >= 100) {
+    $('chargeState').textContent = 'EI TARVETTA'; $('chargeState').className = 'charge-state good';
+    $('chargeWindow').textContent = 'Akku täynnä'; $('chargeAvg').textContent = '–'; $('chargeCost').textContent = '0,00 €';
+    $('chargeExplain').textContent = 'Akun varaustaso on 100 %, joten latausta ei tarvita.';
+    return;
+  }
+
+  const slots = quarterSlots(deadline);
+  if (slots.length < n) {
+    $('chargeState').textContent = 'LATAA NYT'; $('chargeState').className = 'charge-state bad';
+    $('chargeWindow').textContent = 'Aikaa liian vähän'; $('chargeAvg').textContent = '–'; $('chargeCost').textContent = '–';
+    $('chargeExplain').textContent = 'Ennen klo 08.00 ei ole riittävästi hinnoiteltuja vartteja täyteen lataukseen. Aloita lataus mahdollisimman pian.';
+    return;
+  }
+
+  let best = null;
+  for (let i = 0; i <= slots.length - n; i++) {
+    const w = slots.slice(i, i + n);
+    if (w.some((x, j) => j && x.date - w[j - 1].date !== 900000)) continue;
+    let remaining = gridKwh, cost = 0, used = 0;
+    for (const s of w) {
+      const e = Math.min(CFG.chargeKw * .25, remaining);
+      cost += s.total * e / 100;
+      used += e;
+      remaining -= e;
+      if (remaining <= 0) break;
+    }
+    if (used + 0.001 < gridKwh) continue;
+    if (!best || cost < best.cost) best = { w, cost };
+  }
+
+  if (!best) return;
+  const w = best.w;
+  const start = w[0].date;
+  const end = new Date(start.getTime() + n * 900000);
+  const avg = w.reduce((s, x) => s + x.total, 0) / w.length;
+  const forecastUsed = w.some((x) => x.src === 'ENNUSTE');
+  const now = Date.now();
+  const active = now >= start.getTime() && now < end.getTime();
+
+  $('chargeState').textContent = active ? 'LATAA' : 'ODOTA';
+  $('chargeState').className = `charge-state ${active ? 'good' : 'warn'}`;
+  $('chargeWindow').textContent = `${dlabel(start)} ${tlabel(start)}–${tlabel(end)}${forecastUsed ? ' *' : ''}`;
+  $('chargeAvg').textContent = `${fmt1(avg)} snt/kWh`;
+  $('chargeCost').textContent = `${fmt2(best.cost)} €`;
+
+  const immediate = slots.slice(0, n);
+  let immediateCost = NaN;
+  if (immediate.length === n) {
+    let remaining = gridKwh, c = 0;
+    for (const s of immediate) {
+      const e = Math.min(CFG.chargeKw * .25, remaining);
+      c += s.total * e / 100;
+      remaining -= e;
+      if (remaining <= 0) break;
+    }
+    immediateCost = c;
+  }
+  const save = Number.isFinite(immediateCost) ? immediateCost - best.cost : NaN;
+  $('chargeExplain').textContent = active
+    ? `Optimaalinen ikkuna on käynnissä. Lataa nyt. Tarve verkosta noin ${fmt1(gridKwh)} kWh.`
+    : `Odota klo ${tlabel(start)} asti. Tarve verkosta noin ${fmt1(gridKwh)} kWh.${Number.isFinite(save) && save > .05 ? ` Arvioitu säästö verrattuna heti aloitukseen ${fmt2(save)} €.` : ''}${forecastUsed ? ' * Ikkuna käyttää osin Sähkövatkaimen ennustetta.' : ''}`;
+
+  $('copyCharge').dataset.text = `Citroën lataus: ${dlabel(start)} klo ${tlabel(start)}–${tlabel(end)}. Akku nyt ${soc} %. Valmis klo 08.00.`;
+}
+
+async function refresh() {
+  const s = $('status');
+  s.className = 'status';
+  s.textContent = 'Haetaan spot, ennuste ja sää…';
+  try {
+    const [p, v, w] = await Promise.all([fetchPrices(), fetchVatkain(), fetchWeather()]);
+    state = { prices: p, vatkain: v, weather: w };
+    renderHero(); renderChart(); renderDays(); renderTable(); optimizeCharge();
+    s.className = 'status ok';
+    s.textContent = `Päivitetty ${new Intl.DateTimeFormat('fi-FI', { hour: '2-digit', minute: '2-digit' }).format(new Date())} · julkaistu spot erotettu ennusteesta`;
+  } catch (e) {
+    s.className = 'status err';
+    s.textContent = e.message || 'Tietojen haku epäonnistui';
+  }
+}
+
+const savedSoc = localStorage.getItem('sahkovahti_soc');
+if (savedSoc !== null && $('soc')) $('soc').value = savedSoc;
+$('soc')?.addEventListener('input', optimizeCharge);
+$('refresh')?.addEventListener('click', refresh);
+$('copyCharge')?.addEventListener('click', async () => {
+  const txt = $('copyCharge').dataset.text;
+  if (!txt) return;
+  try { await navigator.clipboard.writeText(txt); $('copyCharge').textContent = 'Kopioitu'; setTimeout(() => $('copyCharge').textContent = 'Kopioi latausaika', 1200); } catch (_) {}
+});
+$('openCitroen')?.addEventListener('click', () => {
+  window.location.href = 'intent://#Intent;package=com.psa.mym.mycitroen;end';
+  setTimeout(() => { window.location.href = 'https://play.google.com/store/apps/details?id=com.psa.mym.mycitroen'; }, 1200);
+});
+
+refresh();
