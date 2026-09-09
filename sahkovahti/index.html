@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#08131f" />
+  <title>Sähkövahti</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>⚡ Sähkövahti</h1>
+      <p>Hämeenlinna · pilotti</p>
+    </div>
+    <button id="refresh" aria-label="Päivitä">↻</button>
+  </header>
+
+  <main>
+    <div id="status" class="status">Haetaan tietoja…</div>
+
+    <section class="hero">
+      <article class="card">
+        <span class="kicker">SÄHKÖ NYT</span>
+        <div class="big"><span id="spotNow">–</span><small>snt/kWh</small></div>
+        <div id="totalNow" class="sub">Kokonaismuuttuva –</div>
+        <span id="priceBand" class="badge">–</span>
+      </article>
+      <article class="card">
+        <span class="kicker">HÄMEENLINNA NYT</span>
+        <div class="big"><span id="tempNow">–</span><small>°C</small></div>
+        <div id="weatherNow" class="sub">–</div>
+        <span id="windNow" class="badge">tuuli –</span>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panelhead">
+        <div>
+          <h2>7 vrk sähkön hinta</h2>
+          <p>Yhtenäinen = julkaistu spot · katkoviiva = Sähkövatkaimen ennuste</p>
+        </div>
+      </div>
+      <div class="legend"><span><i class="solid"></i>spot</span><span><i class="dash"></i>ennuste</span></div>
+      <div class="chartbox"><svg id="chart" viewBox="0 0 760 330" preserveAspectRatio="none"></svg></div>
+      <div id="dayCards" class="daycards"></div>
+    </section>
+
+    <section class="panel">
+      <details open>
+        <summary>Julkaistut varttihinnat</summary>
+        <p id="spotMeta" class="muted">–</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>Aika</th><th>Spot</th><th>Siirto + marg.</th><th>Yhteensä</th></tr></thead>
+            <tbody id="spotRows"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="note">
+      <strong>Dataperiaate</strong>
+      <p>Julkaistu spot-hinta korvaa aina ennusteen. Sähkövatkainta käytetään vain julkaisemattomalle ajalle. Hämeenlinnan sää näytetään erikseen eikä sitä käytetä markkinahintaennusteen selittäjänä.</p>
+    </section>
+  </main>
+<script src="app.js"></script>
+</body>
+</html>
