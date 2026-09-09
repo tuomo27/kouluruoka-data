@@ -34,6 +34,35 @@
       </article>
     </section>
 
+    <section class="panel carpanel">
+      <div class="car-title">
+        <div>
+          <span class="kicker">CITROËN C5 AIRCROSS PHEV</span>
+          <h2>Latausvahti</h2>
+          <p>13,2 kWh · 3,68 kW · 1×16 A · valmis viimeistään klo 08.00</p>
+        </div>
+        <span id="chargeState" class="charge-state">–</span>
+      </div>
+
+      <div class="socrow">
+        <label for="soc">Akun varaustaso nyt</label>
+        <div class="socinput"><input id="soc" type="number" min="0" max="100" step="1" inputmode="numeric" value="40"><span>%</span></div>
+      </div>
+
+      <div class="chargegrid">
+        <div><span>Halvin latausikkuna</span><strong id="chargeWindow">–</strong></div>
+        <div><span>Latausaika</span><strong id="chargeDuration">–</strong></div>
+        <div><span>Keskihinta</span><strong id="chargeAvg">–</strong></div>
+        <div><span>Arvioitu kustannus</span><strong id="chargeCost">–</strong></div>
+      </div>
+      <p id="chargeExplain" class="charge-explain">Syötä akun varaustaso, niin Sähkövahti etsii halvimman yhtäjaksoisen latausikkunan ennen klo 08.00.</p>
+      <div class="carbuttons">
+        <button id="openCitroen" class="primary">Avaa MyCitroën</button>
+        <button id="copyCharge" class="secondary">Kopioi latausaika</button>
+      </div>
+      <p class="micro">Laskenta olettaa noin 90 % lataushyötysuhteen. Jos virallinen spot on käytettävissä, sitä käytetään aina; muuten ikkuna merkitään ennusteeksi.</p>
+    </section>
+
     <section class="panel">
       <div class="panelhead">
         <div>
