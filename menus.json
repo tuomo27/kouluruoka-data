@@ -197,7 +197,8 @@
           "Salaattisekoitus",
           "Kukkakaali",
           "Retiisiraaste",
-          "Kesäkurpitsasuikale"
+          "Kesäkurpitsasuikale",
+          "Jogurtti"
         ],
         "ok": true,
         "vegetarian_lunch": [
@@ -205,7 +206,8 @@
           "Salaattisekoitus",
           "Kukkakaali",
           "Retiisiraaste",
-          "Kesäkurpitsasuikale"
+          "Kesäkurpitsasuikale",
+          "Jogurtti"
         ]
       }
     ],
@@ -313,6 +315,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-09-10T04:30:57.110865+00:00",
+  "generated_at": "2026-09-10T14:30:25.427229+00:00",
   "warnings": {}
 }
