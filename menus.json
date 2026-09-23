@@ -159,7 +159,7 @@
           "Tomaattisalsa",
           "Maissi",
           "Sulatejuusto, cheddar",
-          "Valkosipulimajoneesi"
+          "Turkkilainen jogurtti"
         ],
         "ok": true,
         "vegetarian_lunch": [
@@ -169,7 +169,7 @@
           "Tomaattisalsa",
           "Maissi",
           "Sulatejuusto, cheddar",
-          "Valkosipulimajoneesi"
+          "Turkkilainen jogurtti"
         ]
       },
       {
@@ -200,8 +200,8 @@
           "Cheddarjuusto",
           "Jäävuorisalaatti",
           "Tomaattiviipale",
-          "Kasvismajoneesi",
-          "Maustekurkku"
+          "Maustekurkku",
+          "Valkosipulimajoneesi"
         ],
         "ok": true,
         "vegetarian_lunch": [
@@ -210,8 +210,8 @@
           "Cheddarjuusto",
           "Jäävuorisalaatti",
           "Tomaattiviipale",
-          "Kasvismajoneesi",
-          "Maustekurkku"
+          "Maustekurkku",
+          "Valkosipulimajoneesi"
         ]
       }
     ],
@@ -308,6 +308,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-09-22T18:08:37.533768+00:00",
+  "generated_at": "2026-09-23T09:21:39.081638+00:00",
   "warnings": {}
 }
