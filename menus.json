@@ -2,6 +2,57 @@
   "child_1": {
     "next_week": [
       {
+        "date": "2026-10-12",
+        "day": "maanantai",
+        "lunch": [
+          "Paneroitu kalapihvi",
+          "Ruohosipuli-kermaviilikastike",
+          "Keitettyjä perunoita",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-10-13",
+        "day": "tiistai",
+        "lunch": [
+          "Hernekeittoa",
+          "Tuorepalaa",
+          "Hedelmää",
+          "Pehmeä leipä"
+        ]
+      },
+      {
+        "date": "2026-10-14",
+        "day": "keskiviikko",
+        "lunch": [
+          "Pinaattiohukaisia",
+          "Puolukkahilloa",
+          "Perunasosetta",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-10-15",
+        "day": "torstai",
+        "lunch": [
+          "Broilerikiusaus",
+          "Salaattia",
+          "Pehmeä leipä",
+          "Lämmin kasvis"
+        ]
+      },
+      {
+        "date": "2026-10-16",
+        "day": "perjantai",
+        "lunch": [
+          "Chili con carnea",
+          "Keitettyjä perunoita",
+          "Salaattia"
+        ]
+      }
+    ],
+    "this_week": [
+      {
         "date": "2026-10-05",
         "day": "maanantai",
         "lunch": [
@@ -47,62 +98,42 @@
           "Salaattia"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-09-28",
-        "day": "maanantai",
-        "lunch": [
-          "Nakkikastiketta",
-          "Keitettyjä perunoita",
-          "Hedelmää",
-          "Salaattia"
-        ]
-      },
-      {
-        "date": "2026-09-29",
-        "day": "tiistai",
-        "lunch": [
-          "Palermon pasta",
-          "Salaattia",
-          "Lämmin kasvis"
-        ]
-      },
-      {
-        "date": "2026-09-30",
-        "day": "keskiviikko",
-        "lunch": [
-          "Tomaattinen tonnikalakastike",
-          "Keitettyjä perunoita",
-          "Salaattia",
-          "Pehmeä leipä"
-        ]
-      },
-      {
-        "date": "2026-10-01",
-        "day": "torstai",
-        "lunch": [
-          "Mansikkakiisseli",
-          "Ohrasuurimopuuroa",
-          "Juustoa",
-          "Tuorepalaa",
-          "Pehmeä leipä"
-        ]
-      },
-      {
-        "date": "2026-10-02",
-        "day": "perjantai",
-        "lunch": [
-          "Kalapuikot",
-          "Kermaviili-tillikastiketta",
-          "Perunasosetta",
-          "Salaattia"
-        ]
-      }
     ]
   },
   "child_2": {
     "next_week": [
+      {
+        "date": "2026-10-12",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-10-13",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-10-14",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-10-15",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      },
+      {
+        "date": "2026-10-16",
+        "lunch": [],
+        "ok": true,
+        "vegetarian_lunch": []
+      }
+    ],
+    "this_week": [
       {
         "date": "2026-10-05",
         "lunch": [
@@ -198,120 +229,11 @@
           "Porkkanaraaste"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-09-28",
-        "lunch": [
-          "Hyvinvointivirtaa-viikko",
-          "Lihapyörykkä",
-          "Perunat",
-          "Ruskeakastike",
-          "Salaattisekoitus",
-          "Tomaattilohko",
-          "Maustekurkku"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Kasvispyörykkä",
-          "Perunat",
-          "Ruskeakastike",
-          "Salaattisekoitus",
-          "Tomaattilohko",
-          "Maustekurkku"
-        ]
-      },
-      {
-        "date": "2026-09-29",
-        "lunch": [
-          "Broilernugetit",
-          "Perunat",
-          "Kermaviili-valkosipulikastike",
-          "Jäävuorisalaatti",
-          "Kurkkusuikale",
-          "Porkkanaraaste",
-          "Kurpitsapalat",
-          "Pasta+persilja salaatti"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Jalapenonugetit",
-          "Perunat",
-          "Kermaviili-valkosipulikastike",
-          "Jäävuorisalaatti",
-          "Kurkkusuikale",
-          "Porkkanaraaste",
-          "Kurpitsapalat",
-          "Pasta+persilja salaatti"
-        ]
-      },
-      {
-        "date": "2026-09-30",
-        "lunch": [
-          "Broilertäyte",
-          "Vehnätortilla",
-          "Jäävuorisalaatti",
-          "Tomaattisalsa",
-          "Maissi",
-          "Sulatejuusto, cheddar",
-          "Turkkilainen jogurtti"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Soijatäyte",
-          "Vehnätortilla",
-          "Jäävuorisalaatti",
-          "Tomaattisalsa",
-          "Maissi",
-          "Sulatejuusto, cheddar",
-          "Turkkilainen jogurtti"
-        ]
-      },
-      {
-        "date": "2026-10-01",
-        "lunch": [
-          "Uunimakkara ",
-          "Perunasose",
-          "Salaattisekoitus",
-          "Porkkanaraaste",
-          "Kurkkukuutio",
-          "Paprikasuikale"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Kasviskepukka",
-          "Perunasose",
-          "Salaattisekoitus",
-          "Porkkanaraaste",
-          "Kurkkukuutio",
-          "Paprikasuikale"
-        ]
-      },
-      {
-        "date": "2026-10-02",
-        "lunch": [
-          "Hampurilaissämpylä",
-          "Paneroitu kalapala",
-          "Cheddarjuusto",
-          "Jäävuorisalaatti",
-          "Tomaattiviipale",
-          "Maustekurkku",
-          "Valkosipulimajoneesi"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Hampurilaissämpylä",
-          "Kasvispihvi",
-          "Cheddarjuusto",
-          "Jäävuorisalaatti",
-          "Tomaattiviipale",
-          "Maustekurkku",
-          "Valkosipulimajoneesi"
-        ]
-      }
     ]
   },
   "errors": {},
-  "generated_at": "2026-10-04T18:11:51.822681+00:00",
-  "warnings": {}
+  "generated_at": "2026-10-05T11:33:51.334776+00:00",
+  "warnings": {
+    "child_2_next_week": "The source responded successfully, but next week's lunch items have not been published yet."
+  }
 }
