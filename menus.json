@@ -2,6 +2,56 @@
   "child_1": {
     "next_week": [
       {
+        "date": "2026-10-26",
+        "day": "maanantai",
+        "lunch": [
+          "Broilercurrykastiketta",
+          "Täysjyväriisi",
+          "Lämmin kasvis",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-10-27",
+        "day": "tiistai",
+        "lunch": [
+          "Tonnikalapasta",
+          "Pehmeä leipä",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-10-28",
+        "day": "keskiviikko",
+        "lunch": [
+          "Härkistäytettä",
+          "Vehnätortilloja",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-10-29",
+        "day": "torstai",
+        "lunch": [
+          "Broilerikeittoa",
+          "Mangopuuroa",
+          "Tuorepalaa",
+          "Hedelmää",
+          "Pehmeä leipä"
+        ]
+      },
+      {
+        "date": "2026-10-30",
+        "day": "perjantai",
+        "lunch": [
+          "Uunimakkaraa",
+          "Perunasosetta",
+          "Salaattia"
+        ]
+      }
+    ],
+    "this_week": [
+      {
         "date": "2026-10-19",
         "day": "maanantai",
         "lunch": [
@@ -51,47 +101,114 @@
           "Lämmin kasvis"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-10-12",
-        "day": "maanantai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "school_holiday": true
-      },
-      {
-        "date": "2026-10-13",
-        "day": "tiistai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "school_holiday": true
-      },
-      {
-        "date": "2026-10-14",
-        "day": "keskiviikko",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "school_holiday": true
-      },
-      {
-        "date": "2026-10-15",
-        "day": "torstai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "school_holiday": true
-      },
-      {
-        "date": "2026-10-16",
-        "day": "perjantai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "school_holiday": true
-      }
     ]
   },
   "child_2": {
     "next_week": [
+      {
+        "date": "2026-10-26",
+        "lunch": [
+          "Jauhelihapihvi",
+          "Peruna",
+          "Sienikastike",
+          "Coleslaw-salaatti",
+          "Tomaattilohko",
+          "Salaattisekoitus",
+          "Kurkku-retiisisalaatti"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Kasvispihvi",
+          "Peruna",
+          "Sienikastike",
+          "Coleslaw-salaatti",
+          "Tomaattilohko",
+          "Salaattisekoitus",
+          "Kurkku-retiisisalaatti"
+        ]
+      },
+      {
+        "date": "2026-10-27",
+        "lunch": [
+          "Kalakeitto",
+          "Saaristolaisleipä",
+          "Puolukkarahka"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Fenkolikeitto",
+          "Saaristolaisleipä",
+          "Puolukkarahka"
+        ]
+      },
+      {
+        "date": "2026-10-28",
+        "lunch": [
+          "Broiler-nuudelivuoka",
+          "Mustaherukkahillo",
+          "Jäävuorisalaatti",
+          "Salaatti appelsiini-punasipuli",
+          "Kurkkukuutio",
+          "Tomaattikuutio",
+          "Hedelmä"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Kasvis-nuudelivuoka",
+          "Mustaherukkahillo",
+          "Jäävuorisalaatti",
+          "Salaatti appelsiini-punasipuli",
+          "Tomaattikuutio",
+          "Kurkkukuutio",
+          "Hedelmä"
+        ]
+      },
+      {
+        "date": "2026-10-29",
+        "lunch": [
+          "Hernekeitto",
+          "Sipuli",
+          "Paahdettu sipuli",
+          "Sinappi",
+          "Ruisvuokaleipä",
+          "Ohukainen",
+          "Mansikkahillo"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Kasvis-hernekeitto",
+          "Sipuli",
+          "Paahdettu sipuli",
+          "Sinappi",
+          "Ruisvuokaleipä",
+          "Ohukainen",
+          "Mansikkahillo"
+        ]
+      },
+      {
+        "date": "2026-10-30",
+        "lunch": [
+          "Paneroitu kalkkunaleike",
+          "Cheddarkastike",
+          "Peruna",
+          "Kiinankaali-paprika- persikkasalaatti",
+          "Salaatti, marinoitu punasipuli",
+          "Salaattisekoitus",
+          "Tomaattilohko"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Porkkanapihvi",
+          "Peruna",
+          "Cheddarkastike",
+          "Kiinankaali-paprika- persikkasalaatti",
+          "Tomaattilohko",
+          "Salaattisekoitus",
+          "Salaatti, marinoitu punasipuli"
+        ]
+      }
+    ],
+    "this_week": [
       {
         "date": "2026-10-19",
         "lunch": [
@@ -189,59 +306,9 @@
           "Coleslaw-salaatti"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-10-12",
-        "day": "maanantai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "ok": true,
-        "school_holiday": true,
-        "vegetarian_lunch": []
-      },
-      {
-        "date": "2026-10-13",
-        "day": "tiistai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "ok": true,
-        "school_holiday": true,
-        "vegetarian_lunch": []
-      },
-      {
-        "date": "2026-10-14",
-        "day": "keskiviikko",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "ok": true,
-        "school_holiday": true,
-        "vegetarian_lunch": []
-      },
-      {
-        "date": "2026-10-15",
-        "day": "torstai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "ok": true,
-        "school_holiday": true,
-        "vegetarian_lunch": []
-      },
-      {
-        "date": "2026-10-16",
-        "day": "perjantai",
-        "holiday": "Syysloma",
-        "lunch": [],
-        "ok": true,
-        "school_holiday": true,
-        "vegetarian_lunch": []
-      }
     ]
   },
   "errors": {},
-  "generated_at": "2026-10-18T17:25:07.205005+00:00",
-  "warnings": {
-    "child_1_this_week": "School holiday; no school lunch expected.",
-    "child_2_this_week": "School holiday; no school lunch expected."
-  }
+  "generated_at": "2026-10-19T09:58:48.465770+00:00",
+  "warnings": {}
 }
