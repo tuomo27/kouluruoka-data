@@ -2,6 +2,55 @@
   "child_1": {
     "next_week": [
       {
+        "date": "2026-11-02",
+        "day": "maanantai",
+        "lunch": [
+          "Kirjolohikiusausta",
+          "Salaattia",
+          "Lämmin kasvis"
+        ]
+      },
+      {
+        "date": "2026-11-03",
+        "day": "tiistai",
+        "lunch": [
+          "Butter chicken",
+          "Täysjyväriisiä",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-11-04",
+        "day": "keskiviikko",
+        "lunch": [
+          "Hernekeittoa",
+          "Kanelipuusti",
+          "Pehmeä leipä",
+          "Tuorepalaa",
+          "Hedelmää"
+        ]
+      },
+      {
+        "date": "2026-11-05",
+        "day": "torstai",
+        "lunch": [
+          "Pinaattiohukaisia",
+          "Perunasosetta",
+          "Pehmeä leipä",
+          "Salaattia"
+        ]
+      },
+      {
+        "date": "2026-11-06",
+        "day": "perjantai",
+        "lunch": [
+          "Jauheliha-pastavuoka",
+          "Salaattia"
+        ]
+      }
+    ],
+    "this_week": [
+      {
         "date": "2026-10-26",
         "day": "maanantai",
         "lunch": [
@@ -49,62 +98,114 @@
           "Salaattia"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-10-19",
-        "day": "maanantai",
-        "lunch": [
-          "Butter chicken",
-          "Täysjyväriisi",
-          "Salaattia"
-        ]
-      },
-      {
-        "date": "2026-10-20",
-        "day": "tiistai",
-        "lunch": [
-          "Lihaperunasoselaatikkoa",
-          "Pehmeä leipä",
-          "Salaattia"
-        ]
-      },
-      {
-        "date": "2026-10-21",
-        "day": "keskiviikko",
-        "lunch": [
-          "Kalapyöryköitä",
-          "Tillikastiketta",
-          "Keitettyjä perunoita",
-          "Salaattia",
-          "Hedelmää"
-        ]
-      },
-      {
-        "date": "2026-10-22",
-        "day": "torstai",
-        "lunch": [
-          "Makkarakeittoa",
-          "Hedelmää",
-          "Pehmeä leipä",
-          "Tuorepalaa"
-        ]
-      },
-      {
-        "date": "2026-10-23",
-        "day": "perjantai",
-        "lunch": [
-          "Bataatti-juurespihvi",
-          "Kermaviili-persikkakastike",
-          "Keitettyjä perunoita",
-          "Salaattia",
-          "Lämmin kasvis"
-        ]
-      }
     ]
   },
   "child_2": {
     "next_week": [
+      {
+        "date": "2026-11-02",
+        "lunch": [
+          "Kanakepukka",
+          "Mac & Cheese",
+          "Coleslaw-salaatti",
+          "Salaattisekoitus",
+          "Kurkkuviipale",
+          "Paprikakuutiosekoitus",
+          "Tomaattikuutio"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Kasvispihvi",
+          "Coleslaw-salaatti",
+          "Mac & Cheese",
+          "Salaattisekoitus",
+          "Kurkkuviipale",
+          "Paprikakuutiosekoitus",
+          "Tomaattikuutio"
+        ]
+      },
+      {
+        "date": "2026-11-03",
+        "lunch": [
+          "Kirjolohikiusaus",
+          "Viipaloituja punajuuria",
+          "Kurkkukuutio",
+          "Porkkanaraaste",
+          "Salaattisekoitus",
+          "Hedelmä"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Yrtti-juureskiusaus",
+          "Viipaloituja punajuuria",
+          "Kurkkukuutio",
+          "Porkkanaraaste",
+          "Salaattisekoitus",
+          "Hedelmä"
+        ]
+      },
+      {
+        "date": "2026-11-04",
+        "lunch": [
+          "Nakkikeitto -Punainen",
+          "Perunarieska",
+          "Ruispala",
+          "Omena-kaurapaistos",
+          "Vaniljakastike"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Kasvis-kaalikeitto",
+          "Perunarieska",
+          "Ruispala",
+          "Omena-kaurapaistos",
+          "Vaniljakastike"
+        ]
+      },
+      {
+        "date": "2026-11-05",
+        "lunch": [
+          "Naudanliha-pippurikastike",
+          "Riisi",
+          "Punajuurisalaatti",
+          "Salaattisekoitus",
+          "Kurkkukuutio",
+          "Tomaattilohko"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Papu-paprikakastike",
+          "Riisi",
+          "Punajuurisalaatti",
+          "Salaattisekoitus",
+          "Kurkkukuutio",
+          "Tomaattilohko"
+        ]
+      },
+      {
+        "date": "2026-11-06",
+        "lunch": [
+          "Ruotsalaisuuden päivä",
+          "Lihapyörykkä",
+          "Perunasose",
+          "Puolukkahillo",
+          "Salaattisekoitus",
+          "Kurkkusuikale",
+          "Salaatti, tomaatti-punasipuli"
+        ],
+        "ok": true,
+        "vegetarian_lunch": [
+          "Ruotsalaisuuden päivä",
+          "Kasvispyörykkä",
+          "Perunasose",
+          "Puolukkahillo",
+          "Salaattisekoitus",
+          "Kurkkusuikale",
+          "Salaatti, tomaatti-punasipuli"
+        ]
+      }
+    ],
+    "this_week": [
       {
         "date": "2026-10-26",
         "lunch": [
@@ -207,108 +308,9 @@
           "Salaatti, marinoitu punasipuli"
         ]
       }
-    ],
-    "this_week": [
-      {
-        "date": "2026-10-19",
-        "lunch": [
-          "Kebabkastike",
-          "Riisi",
-          "Jäävuorisalaatti",
-          "Kurkkusuikale",
-          "Maissi"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Quorn-kasviskastike",
-          "Riisi",
-          "Jäävuorisalaatti",
-          "Kurkkusuikale",
-          "Kebabkastike",
-          "Maissi"
-        ]
-      },
-      {
-        "date": "2026-10-20",
-        "lunch": [
-          "Broiler-pastavuoka",
-          "Salaattisekoitus",
-          "Tomaattilohko",
-          "Kurkkukuutio",
-          "Ananaspala",
-          "Hedelmä"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Pinaatti-pastavuoka",
-          "Salaattisekoitus",
-          "Tomaattilohko",
-          "Kurkkukuutio",
-          "Ananaspala",
-          "Hedelmä"
-        ]
-      },
-      {
-        "date": "2026-10-21",
-        "lunch": [
-          "Kalapyörykkä",
-          "Tillikastike",
-          "Peruna",
-          "Jäävuorisalaatti",
-          "Porkkanaraaste",
-          "Kurkku",
-          "Punajuurisalaatti"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Kasvispyörykkä",
-          "Tillikastike",
-          "Peruna",
-          "Jäävuorisalaatti",
-          "Porkkanaraaste",
-          "Kurkku",
-          "Punajuurisalaatti"
-        ]
-      },
-      {
-        "date": "2026-10-22",
-        "lunch": [
-          "Punainen broilerkeitto",
-          "Ruispala",
-          "Edamjuusto",
-          "Marjakiisseli"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Linssi-tomaattikeitto",
-          "Ruispala",
-          "Edamjuusto",
-          "Marjakiisseli"
-        ]
-      },
-      {
-        "date": "2026-10-23",
-        "lunch": [
-          "Naudanliha-pippurikastike",
-          "Peruna",
-          "Salaattisekoitus",
-          "Paprikasuikale",
-          "Kesäkurpitsasuikale",
-          "Coleslaw-salaatti"
-        ],
-        "ok": true,
-        "vegetarian_lunch": [
-          "Papu-paprikakastike",
-          "Peruna",
-          "Salaattisekoitus",
-          "Paprikasuikale",
-          "Kesäkurpitsasuikale",
-          "Coleslaw-salaatti"
-        ]
-      }
     ]
   },
   "errors": {},
-  "generated_at": "2026-10-25T17:40:30.056899+00:00",
+  "generated_at": "2026-10-26T10:12:23.019225+00:00",
   "warnings": {}
 }
