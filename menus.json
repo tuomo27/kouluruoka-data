@@ -105,7 +105,7 @@
       {
         "date": "2026-11-02",
         "lunch": [
-          "Kanakepukka",
+          "Broilerijauhelihapihvi",
           "Mac & Cheese",
           "Coleslaw-salaatti",
           "Salaattisekoitus",
@@ -311,6 +311,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-10-27T19:27:16.271032+00:00",
+  "generated_at": "2026-10-28T10:38:07.166776+00:00",
   "warnings": {}
 }
