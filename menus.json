@@ -116,7 +116,7 @@
         ],
         "ok": true,
         "vegetarian_lunch": [
-          "Kasvis-juustokastike",
+          "Mifu-juustokastike",
           "Cappelli-pasta, täysjyvä",
           "Salaattisekoitus",
           "Mandariinilohko",
@@ -136,7 +136,7 @@
         ],
         "ok": true,
         "vegetarian_lunch": [
-          "Kasvis-sienikiusaus",
+          "Sienikiusaus",
           "Jäävuorisalaatti",
           "Pirteä salaatti",
           "Kirsikkatomaatti",
@@ -153,7 +153,7 @@
         ],
         "ok": true,
         "vegetarian_lunch": [
-          "Lapin ukon kasvis-keitto",
+          "Yrttinen kasviskeitto",
           "Saaristolaisleipä",
           "Hedelmä"
         ]
@@ -303,6 +303,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-11-02T22:48:14.049177+00:00",
+  "generated_at": "2026-11-03T11:59:27.766091+00:00",
   "warnings": {}
 }
