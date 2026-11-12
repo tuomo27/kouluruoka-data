@@ -161,7 +161,7 @@
       {
         "date": "2026-11-19",
         "lunch": [
-          "Aamiaisnakki",
+          "Nakit",
           "Perunasose",
           "Jäävuorisalaatti",
           "Porkkanaraaste",
@@ -293,6 +293,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-11-11T21:27:03.855267+00:00",
+  "generated_at": "2026-11-12T12:49:20.161419+00:00",
   "warnings": {}
 }
