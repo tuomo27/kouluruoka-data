@@ -109,7 +109,7 @@
         "lunch": [
           "Broileripyörykkä",
           "Peruna",
-          "Viherpippurikastike",
+          "Pippurikastike",
           "Salaattisekoitus",
           "Kurkkukuutio",
           "Tomaattiviipale",
@@ -293,6 +293,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-11-12T21:29:28.353667+00:00",
+  "generated_at": "2026-11-13T12:18:20.165486+00:00",
   "warnings": {}
 }
