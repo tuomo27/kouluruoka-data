@@ -109,6 +109,7 @@
         "lunch": [
           "Nakkikastike",
           "Perunat",
+          "Kasvissekoitus",
           "Kurkkuviipale mausteliemessä",
           "Jäävuorisalaatti",
           "Tomaattiviipale",
@@ -117,8 +118,9 @@
         ],
         "ok": true,
         "vegetarian_lunch": [
-          "Härkäpapukastike",
+          "Kasviskastike",
           "Perunat",
+          "Kasvissekoitus",
           "Kurkkuviipale mausteliemessä",
           "Jäävuorisalaatti",
           "Tomaattiviipale",
@@ -128,16 +130,16 @@
       },
       {
         "date": "2026-11-24",
-        "lunch": [],
-        "ok": true,
-        "vegetarian_lunch": [
+        "lunch": [
           "Pinaattikeitto",
           "Porkkanasosekeitto",
           "Kananmuna",
           "Sämpylä",
           "Ruisleipä, pala",
           "Mansikkakiisseli"
-        ]
+        ],
+        "ok": true,
+        "vegetarian_lunch": []
       },
       {
         "date": "2026-11-25",
@@ -171,7 +173,7 @@
           "Paprikasuikale",
           "Porkkana-chili-punakaalisalaatti",
           "Tomaattikuutio",
-          "Hedelmä"
+          "Omena"
         ],
         "ok": true,
         "vegetarian_lunch": [
@@ -180,7 +182,7 @@
           "Paprikasuikale",
           "Porkkana-chili-punakaalisalaatti",
           "Tomaattikuutio",
-          "Hedelmä"
+          "Mandariini"
         ]
       },
       {
@@ -306,6 +308,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-11-16T23:25:19.907538+00:00",
+  "generated_at": "2026-11-17T13:31:35.501450+00:00",
   "warnings": {}
 }
