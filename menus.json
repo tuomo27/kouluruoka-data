@@ -132,7 +132,7 @@
         "date": "2026-11-24",
         "lunch": [
           "Pinaattikeitto",
-          "Porkkanasosekeitto",
+          "Bataatti-porkkana-perunasosekeitto",
           "Kananmuna",
           "Sämpylä",
           "Ruisleipä, pala",
@@ -308,6 +308,6 @@
     ]
   },
   "errors": {},
-  "generated_at": "2026-11-19T22:12:06.188242+00:00",
+  "generated_at": "2026-11-20T13:00:09.959828+00:00",
   "warnings": {}
 }
